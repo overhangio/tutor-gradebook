@@ -1,7 +1,7 @@
 Gradebook plugin for `Tutor <https://docs.tutor.overhang.io>`__
 ================================================================
 
-This Tutor plugin adds the Gradebook microfrontend to an Open edX installation.
+This Tutor plugin adds the `Gradebook <https://github.com/edx/frontend-app-gradebook/>`__ microfrontend to an Open edX installation.
 
 ⚠️ THIS IS ALPHA SOFTWARE NOT YET READY FOR RELEASE ⚠️
 
