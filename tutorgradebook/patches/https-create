@@ -1,0 +1,2 @@
+# gradebook
+certbot certonly --standalone -n --agree-tos -m admin@{{ LMS_HOST }} -d {{ GRADEBOOK_HOST }}

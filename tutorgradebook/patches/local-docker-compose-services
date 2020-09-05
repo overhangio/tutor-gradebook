@@ -1,0 +1,5 @@
+gradebook:
+  image: {{ GRADEBOOK_DOCKER_IMAGE }}
+  restart: unless-stopped
+  volumes:
+    - ../../data/gradebook/dist/:/openedx/app/dist/:ro

@@ -1,0 +1,6 @@
+gradebook-job:
+    image: {{ GRADEBOOK_DOCKER_IMAGE }}
+    volumes:
+      - ../plugins/gradebook/apps/env:/openedx/env:ro
+      - ../../data/gradebook/dist/:/openedx/app/dist/
+    command: ["npm", "run", "build"]

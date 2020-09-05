@@ -1,0 +1,4 @@
+:{$PORT}
+
+root * /openedx/app/dist
+file_server

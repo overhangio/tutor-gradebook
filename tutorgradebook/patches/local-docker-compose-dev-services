@@ -1,0 +1,11 @@
+gradebook:
+    ports:
+        - "127.0.0.1:1994:1994"
+    # TODO this should not be here. Instead, webpack should read the host value from env and we should be running "npm run start"
+    environment:
+        - NODE_ENV=development
+        - BABEL_ENV=development
+    command: ["node_modules/.bin/webpack-dev-server", "--config=config/webpack.dev.config.js", "--progress", "--disable-host-check"]
+    #command: ["npm", "run", "start"]
+    volumes:
+        - ../plugins/gradebook/apps/env.dev:/openedx/env:ro

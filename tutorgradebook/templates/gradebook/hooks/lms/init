@@ -1,0 +1,8 @@
+./manage.py lms create_dot_application \
+    --client-id frontend-app-gradebook \
+    --client-secret {{ GRADEBOOK_OAUTH2_SECRET }} \
+    --grant-type password \
+    --public \
+    --update \
+    frontend-app-gradebook \
+    login_service_user

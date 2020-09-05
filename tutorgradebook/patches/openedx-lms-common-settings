@@ -1,0 +1,1 @@
+WRITABLE_GRADEBOOK_URL = "{% if ACTIVATE_HTTPS %}https://{% else %}http://{% endif %}{{ GRADEBOOK_HOST }}"
