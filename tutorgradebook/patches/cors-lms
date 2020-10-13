@@ -1,1 +1,0 @@
-{{ "https" if ACTIVATE_HTTPS else "http" }}://{{ GRADEBOOK_HOST }}
