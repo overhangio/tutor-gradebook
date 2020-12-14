@@ -13,17 +13,16 @@ config = {
         "VERSION": __version__,
         "FRONTEND_BASE_DOCKER_IMAGE": "{{ DOCKER_REGISTRY }}overhangio/openedx-frontend-base:{{ GRADEBOOK_VERSION }}",
         "DOCKER_IMAGE": "{{ DOCKER_REGISTRY }}overhangio/openedx-gradebook:{{ GRADEBOOK_VERSION }}",
-        "HOST": "grades.{{ LMS_HOST }}",
+        "HOST": "grades.{{ LMS_HOST }}", # TODO deprecate this?
+        "PUBLIC_PATH": "/gradebook",
     },
 }
 
 hooks = {
     "build-image": {
-        "frontend-base": "{{ GRADEBOOK_FRONTEND_BASE_DOCKER_IMAGE }}",
         "gradebook": "{{ GRADEBOOK_DOCKER_IMAGE }}",
     },
     "remote-image": {
-        "frontend-base": "{{ GRADEBOOK_FRONTEND_BASE_DOCKER_IMAGE }}",
         "gradebook": "{{ GRADEBOOK_DOCKER_IMAGE }}",
     },
     "init": ["gradebook", "lms"],

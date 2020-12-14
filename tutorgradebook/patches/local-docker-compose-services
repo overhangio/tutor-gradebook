@@ -1,5 +1,8 @@
 gradebook:
   image: {{ GRADEBOOK_DOCKER_IMAGE }}
   restart: unless-stopped
+  environment:
+    PUBLIC_PATH: "{{ GRADEBOOK_PUBLIC_PATH }}"
   volumes:
+    - ../plugins/gradebook/apps/Caddyfile:/openedx/Caddyfile:ro
     - ../../data/gradebook/dist/:/openedx/app/dist/:ro

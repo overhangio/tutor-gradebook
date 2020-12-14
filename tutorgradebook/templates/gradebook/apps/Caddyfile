@@ -1,0 +1,7 @@
+:1994 {
+    root * /openedx/app/dist
+    handle_path {{ GRADEBOOK_PUBLIC_PATH }}/* {
+        try_files {path} /index.html
+        file_server
+    }
+}
