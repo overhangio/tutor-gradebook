@@ -30,12 +30,8 @@ setup(
     packages=find_packages(exclude=["tests*"]),
     include_package_data=True,
     python_requires=">=3.5",
-    install_requires=["tutor-openedx"],
-    entry_points={
-        "tutor.plugin.v0": [
-            "gradebook = tutorgradebook.plugin"
-        ]
-    },
+    install_requires=["tutor-openedx>=11.0.0,<12.0.0", "tutor-mfe>=11.0.0,<12.0.0"],
+    entry_points={"tutor.plugin.v0": ["gradebook = tutorgradebook.plugin"]},
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",

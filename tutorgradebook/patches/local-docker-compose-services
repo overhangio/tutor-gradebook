@@ -1,5 +1,6 @@
 gradebook:
-  image: {{ GRADEBOOK_DOCKER_IMAGE }}
-  restart: unless-stopped
-  volumes:
-    - ../../data/gradebook/dist/:/openedx/app/dist/:ro
+    image: {{ DOCKER_IMAGE_CADDY }}
+    restart: unless-stopped
+    volumes:
+        - ../plugins/gradebook/apps/Caddyfile:/etc/caddy/Caddyfile:ro
+        - ../../data/gradebook/dist/:/openedx/app/dist/:ro

@@ -7,7 +7,7 @@ This Tutor plugin adds the `Gradebook <https://github.com/edx/frontend-app-grade
 
 This plugin has the following limitations:
 
-- Works with `Tutor <https://docs.tutor.overhang.io/>`__ >= 10.2.2
+- Works with `Tutor <https://docs.tutor.overhang.io/>`__ >= 11.0.0
 - Not compatible with Kubernetes deployment
 - This plugin is not supported yet and will probably be extensively modified before it is included in the official list of supported Tutor plugins.
 
@@ -21,18 +21,14 @@ Installation
 
 ::
 
-    pip install git+https://github.com/overhangio/tutor-gradebook
+    pip install tutor-gradebook
 
 Usage
 -----
 
-Enable the plugin::
+Enable the `base <https://github.com/overhangio/tutor-mfe>`__ microfrontend and the gradebook plugins::
 
-    tutor plugins enable gradebook
-
-You will need to compile the "frontend-base" and "gradebook" images yourself::
-
-    tutor images build frontend-base gradebook
+    tutor plugins enable mfe gradebook
 
 Initialize the Gradebook service::
 
@@ -44,15 +40,13 @@ Then, follow the Open edX documentation on enabling the Gradebook: https://githu
 
 The gradebook will then be available for every course at the following urls:
 
-* In development: http://grades.local.overhang.io:1994/<course-id>
-* In production: http(s)://grades.{{ LMS_HOST }}/<course-id>
+* In development: http://apps.local.overhang.io:1994/gradebook/<course-id>
+* In production: http(s)://{{ MFE_HOST }}/gradebook/<course-id>
 
 Configuration
 -------------
 
-- ``GRADEBOOK_FRONTEND_BASE_DOCKER_IMAGE`` (default: ``"{{ DOCKER_REGISTRY }}overhangio/openedx-frontend-base:{{ GRADEBOOK_VERSION }}"``)
 - ``GRADEBOOK_DOCKER_IMAGE`` (default: ``"{{ DOCKER_REGISTRY }}overhangio/openedx-gradebook:{{ GRADEBOOK_VERSION }}"``)
-- ``GRADEBOOK_HOST`` (default: ``"grades.{{ LMS_HOST }}"``)
 
 License
 -------

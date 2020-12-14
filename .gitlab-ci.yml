@@ -1,0 +1,10 @@
+variables:
+    TUTOR_PLUGIN: gradebook
+    TUTOR_EXTRA_ENABLED_PLUGINS: mfe
+    TUTOR_IMAGES: gradebook
+    TUTOR_PYPI_PACKAGE: tutor-gradebook
+    OPENEDX_RELEASE: koa
+
+include:
+  - project: 'community/tutor-ci'
+    file: 'plugin-gitlab-ci.yml'

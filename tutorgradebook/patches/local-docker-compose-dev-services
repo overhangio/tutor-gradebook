@@ -1,11 +1,13 @@
 gradebook:
+    image: {{ GRADEBOOK_DOCKER_IMAGE }}
     ports:
         - "127.0.0.1:1994:1994"
-    # TODO this should not be here. Instead, webpack should read the host value from env and we should be running "npm run start"
+    # Unfortunately we can't rely on "npm run start" because we need to manually disable host checking,
+    # which defaults to localhost/0.0.0.0.
+    # command: ["npm", "run", "start"]
+    command: ["webpack-dev-server", "--config=./node_modules/@edx/frontend-build/config/webpack.dev.config.js", "--progress", "--disable-host-check", "--output-public-path={{ GRADEBOOK_PUBLIC_PATH }}/", "--history-api-fallback={{ GRADEBOOK_PUBLIC_PATH }}/index.html"]
     environment:
         - NODE_ENV=development
-        - BABEL_ENV=development
-    command: ["node_modules/.bin/webpack-dev-server", "--config=config/webpack.dev.config.js", "--progress", "--disable-host-check"]
-    #command: ["npm", "run", "start"]
     volumes:
-        - ../plugins/gradebook/apps/env.dev:/openedx/env:ro
+        - ../plugins/mfe/apps/env/development.env:/openedx/env/development/00-mfe.env:ro
+        - ../plugins/gradebook/apps/env/development.env:/openedx/env/development/01-gradebook.env:ro
