@@ -1,3 +1,0 @@
-handle {{ GRADEBOOK_PUBLIC_PATH }}/* {
-    reverse_proxy gradebook:1994
-}

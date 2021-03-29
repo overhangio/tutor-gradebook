@@ -1,1 +1,1 @@
-WRITABLE_GRADEBOOK_URL = "{% if ENABLE_HTTPS %}https://{% else %}http://{% endif %}{{ MFE_HOST }}{{ GRADEBOOK_PUBLIC_PATH}}"
+WRITABLE_GRADEBOOK_URL = "{% if ENABLE_HTTPS %}https://{% else %}http://{% endif %}{{ MFE_HOST }}{{ GRADEBOOK_PUBLIC_PATH }}"
